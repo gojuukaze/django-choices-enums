@@ -1,4 +1,4 @@
-# django-choices-enum
+# django-choices-enums
 The enum type used for Django choices enables Django's choices to support code prompts!!  
  
 用于django choices的枚举类型，使得django的choices支持代码提示！！ 
@@ -9,7 +9,7 @@ The enum type used for Django choices enables Django's choices to support code p
 
 # Installation
 ``` 
-pip install django-choices-enum
+pip install django-choices-enums
 ```
 
 

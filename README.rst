@@ -1,5 +1,5 @@
-django-choices-enum
-===================
+django-choices-enums
+====================
 
 The enum type used for Django choices enables Django’s choices to
 support code prompts!!
@@ -16,12 +16,13 @@ Installation
 
 ::
 
-   pip install django-choices-enum
+   pip install django-choices-enums
 
 Usage
 =====
 
 .. code:: python
+
    from django_choices_enums import DjangoChoicesEnum
 
    class TypeChoices(DjangoChoicesEnum):
