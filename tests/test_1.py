@@ -1,4 +1,4 @@
-from django_choices_enum import DjangoChoicesEnum
+from django_choices_enums import DjangoChoicesEnum
 
 
 class MyEnum(DjangoChoicesEnum):

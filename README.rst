@@ -22,6 +22,7 @@ Usage
 =====
 
 .. code:: python
+   from django_choices_enums import DjangoChoicesEnum
 
    class TypeChoices(DjangoChoicesEnum):
        Created = (1,'created')

@@ -16,6 +16,8 @@ pip install django-choices-enum
 # Usage
 
 ```python
+from django_choices_enums import DjangoChoicesEnum
+
 class TypeChoices(DjangoChoicesEnum):
     Created = (1,'created')
     Finished = (2,'finished')
