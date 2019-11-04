@@ -1,2 +1,40 @@
 # django-choices-enum
-an enum to make django choices easy (用于django choices的枚举类型)
+The enum type used for Django choices enables Django's choices to support code prompts!!  
+ 
+用于django choices的枚举类型，使得django的choices支持代码提示！！ 
+
+# 依赖
+
+* python3+
+
+# Installation
+``` 
+pip install django-choices-enum
+```
+
+
+# Usage
+
+```python
+class TypeChoices(DjangoChoicesEnum):
+    Created = (1,'created')
+    Finished = (2,'finished')
+
+class Foo(models.Model):
+    type = models.IntegerField(choices=TypeChoices.to_django_choices())
+
+```
+
+use enum like this:
+
+```python
+f = Foo.create(type=TypeChoices.Created)
+
+```
+
+get all values:
+
+```python
+print(TypeChoices.all_values())
+# Out: [1, 2] 
+```
