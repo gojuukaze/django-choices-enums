@@ -57,7 +57,7 @@ class DjangoChoicesEnum(metaclass=DjangoChoiceEnumMeta):
                 r.append(v)
         for a in cls.anonymous:
             r.append(a)
-        return r
+        return tuple(r)
 
     @classmethod
     def all_values(cls):
@@ -69,7 +69,7 @@ class DjangoChoicesEnum(metaclass=DjangoChoiceEnumMeta):
                 r.append(v[0])
         for a in cls.anonymous:
             r.append(a[0])
-        return r
+        return tuple(r)
     @classmethod
     def get_verbose(cls, value):
         for i in cls.to_django_choices():
