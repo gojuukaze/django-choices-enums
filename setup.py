@@ -4,7 +4,7 @@ import setuptools
 
 setuptools.setup(
     name="django-choices-enums",
-    version='1.0.0',
+    version='1.0.1',
     description="The enum type used for Django choices enables Django's choices to support code prompts!!",
     long_description=open("README.rst").read(),
 
