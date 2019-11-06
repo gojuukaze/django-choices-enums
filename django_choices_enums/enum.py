@@ -1,8 +1,12 @@
-__builtin_func__ = ['to_django_choice']
+__builtin_func__ = ['to_django_choice', 'anonymous', 'get_verbose']
 
 
 def is_builtin(name) -> bool:
     return name.startswith('__') or name in __builtin_func__
+
+
+class ChoiceItem(int):
+    verbose = None
 
 
 class DjangoChoiceEnumMeta(type):
@@ -14,7 +18,9 @@ class DjangoChoiceEnumMeta(type):
         name = args[0]
         r = super().__getattribute__(*args, **kwargs)
         if not is_builtin(name) and isinstance(r, tuple):
-            return r[0]
+            foo = ChoiceItem(r[0])
+            foo.verbose = r[1]
+            return foo
         return r
 
 
@@ -39,6 +45,7 @@ class DjangoChoicesEnum(metaclass=DjangoChoiceEnumMeta):
 
 
     """
+    anonymous = ()
 
     @classmethod
     def to_django_choices(cls):
@@ -48,6 +55,8 @@ class DjangoChoicesEnum(metaclass=DjangoChoiceEnumMeta):
                 continue
             else:
                 r.append(v)
+        for a in cls.anonymous:
+            r.append(a)
         return r
 
     @classmethod
@@ -58,5 +67,12 @@ class DjangoChoicesEnum(metaclass=DjangoChoiceEnumMeta):
                 continue
             else:
                 r.append(v[0])
+        for a in cls.anonymous:
+            r.append(a[0])
         return r
-
+    @classmethod
+    def get_verbose(cls, value):
+        for i in cls.to_django_choices():
+            if i[0] == value:
+                return i[1]
+        return None

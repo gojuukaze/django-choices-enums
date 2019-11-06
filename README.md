@@ -27,16 +27,56 @@ class Foo(models.Model):
 
 ```
 
-use enum like this:
+* use enum like this:
 
 ```python
 f = Foo.create(type=TypeChoices.Created)
 
 ```
 
-get all values:
+* get all values:
 
 ```python
 print(TypeChoices.all_values())
 # Out: [1, 2] 
+```
+
+* anonymous values:
+
+```python
+from django_choices_enums import DjangoChoicesEnum
+
+class MyEnum(DjangoChoicesEnum):
+    A = (1, 'xxx')
+    B = (2, 'xxx')
+
+    anonymous = ((3, 'xx'),
+                 (4, 'xx'),
+                 )
+
+print(MyEnum.all_values())
+# Out: [(1, 'xxx'), (2, 'xxx'), (3, 'xx'), (4, 'xx')]
+```
+
+* get verbose:
+
+```python
+from django_choices_enums import DjangoChoicesEnum
+
+class MyEnum(DjangoChoicesEnum):
+    A = (1, 'A ...')
+    B = (2, 'B ...')
+
+    anonymous = ((3, '33'),
+                 (4, '44'),
+                 )
+print(MyEnum.A.verbose)
+# Out: A ...
+print(MyEnum.get_verbose(2))
+# Out: A ...
+print(MyEnum.get_verbose(3))
+# Out: 33
+print(MyEnum.get_verbose(MyEnum.B))
+# Out: B ...
+
 ```
