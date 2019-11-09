@@ -7,8 +7,8 @@ The enum type used for Django choices enables Django's choices to support code p
 
 # feature
 
-* the human-readable name of choices not missing. 不缺失选项的说明
-* code hints. 支持代码提示
+* the human-readable name of choices not missing. 不缺失 choices 的可读说明
+* code hints. 能支持代码提示
 * Lightweight, easy to use. 方便使用、轻量、无侵入
 
 # 依赖
