@@ -3,6 +3,12 @@ The enum type used for Django choices enables Django's choices to support code p
  
 用于django choices的枚举类型，使得django的choices支持代码提示！！ 
 
+# feature
+
+* the human-readable name of choices not missing. 不缺失选项的说明
+* code hints. 支持代码提示
+* Lightweight, easy to use. 方便使用、轻量、无侵入
+
 # 依赖
 
 * python3+
