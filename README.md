@@ -46,7 +46,7 @@ f = Foo.create(type=TypeChoices.Created)
 
 ```python
 print(TypeChoices.all_values())
-# Out: [1, 2] 
+# Out: (1, 2) 
 ```
 
 * anonymous values:
@@ -62,8 +62,8 @@ class MyEnum(DjangoChoicesEnum):
                  (4, 'xx'),
                  )
 
-print(MyEnum.all_values())
-# Out: [(1, 'xxx'), (2, 'xxx'), (3, 'xx'), (4, 'xx')]
+print(MyEnum.to_django_choices())
+# Out: ((1, 'xxx'), (2, 'xxx'), (3, 'xx'), (4, 'xx'))
 ```
 
 * get verbose:
